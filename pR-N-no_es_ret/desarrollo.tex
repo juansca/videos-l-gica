@@ -1,0 +1,84 @@
+\documentclass[10pt]{beamer}
+
+\usetheme{metropolis}
+\usepackage{appendixnumberbeamer}
+
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+
+\usepackage{booktabs}
+\usepackage[scale=2]{ccicons}
+
+\usepackage{pgfplots}
+\usepgfplotslibrary{dateplot}
+
+\usepackage{xspace}
+\newcommand{\themename}{\textbf{\textsc{metropolis}}\xspace}
+\newcommand{\powerset}{\mathcal{P}}
+\newcommand{\R}{\rm I\!R}
+\newcommand{\N}{\rm I\!N}
+\newcommand{\universe}{\powerset(\R) - \{\N\}}
+\newcommand{\poset}{(U, \subseteq)}
+
+
+\begin{document}
+
+\begin{frame}{Enunciado}
+  \begin{center}
+    Sea $U = \universe$. \\
+    $\poset$ no es un reticulado.
+  \end{center}
+\end{frame}
+
+\begin{frame}{Demostración}
+  Basta con encontrar dos elementos de $U$ tales que no tengan supremo en $\poset$.
+  \stepcounter{beamerpauses}
+  \begin{itemize}[<+->]
+
+    \item Sean $C_1 , C_2 \in U$ tales que $C_1 \cup C_2 = \N$
+    %% Es trivial que tales C_1 y C_2 existen, por ejemplo C_1 = {1} y C_2 = N_{>1}
+
+    \item Probemos por el absurdo que no existe $sup(\{C_1, C_2\})$
+    %% i.e., que no existe ningún elemento de $U$ que sea la mínima cota
+    %% superior de $\{C_1, C_2\}$.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Suposición para llegar al absurdo}
+    Supongamos $X \in U$ es el supremo de $\{C_1, C_2\}$.
+\end{frame}
+
+\begin{frame}{$X \subseteq \N \subseteq X$}
+  \begin{itemize}[<+->]
+
+    \item Entonces $C_1 \subseteq X$ y $C_2 \subseteq X$.
+    \item Como $C_1 \cup C_2 = \N$ debe ser que \alert{$\N \subseteq X$}.
+
+    \item Por otro lado sea $S_1 = \N \cup \{0\}$ y $S_2 = \N \cup \{-1\}$.
+    \item Como $C_1, C_2 \subseteq S_1$, entonces $S_1$ es cota superior de  $\{C_1, C_2\}$
+    \item Por el mismo motivo, $S_2$ es cota superior de  $\{C_1, C_2\}$.
+
+    \item Luego, $X \subseteq S_1$ y $X \subseteq S_2$.
+
+    \item Pero entonces: \alert{$X \subseteq (S_1 \cap S_2) = \N$}
+
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Absurdo}
+  \begin{itemize}[<+->]
+
+    \item Vimos que $\N \subseteq$ $X$ y que $X$ $\subseteq \N$.
+    \item Por antisimetría de $\subseteq$, \alert{$\N = X$}.
+    \item Pero {$\N \notin U$}. \alert{Absurdo} pues $X \in U$.
+    \item Como consecuencia no existe el supremo de $\{C_1, C_2\}$.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[standout]
+  \begin{center}
+  $(\universe, \subseteq)$ no es un reticulado
+  \end{center}
+\end{frame}
+
+\end{document}
