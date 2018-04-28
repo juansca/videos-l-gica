@@ -1,0 +1,557 @@
+\documentclass[10pt]{beamer}
+
+\usetheme{metropolis}
+\usepackage{appendixnumberbeamer}
+
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+
+\usepackage{booktabs}
+
+\usepackage{pgfplots}
+\usepgfplotslibrary{dateplot}
+
+\usepackage{xspace}
+
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{amsmath}
+
+
+\newcounter{saveenumi}
+\newcommand{\seti}{\setcounter{saveenumi}{\value{enumi}}}
+\newcommand{\conti}{\setcounter{enumi}{\value{saveenumi}}}
+
+\resetcounteronoverlays{saveenumi}
+
+
+\newcommand{\Cfonta}{\fontsize{6.7}{9.5}\selectfont}
+\newcommand{\Cfontb}{\fontsize{5.7}{9.5}\selectfont}
+\newcommand{\Cfont}{\fontsize{5.5}{7.2}\selectfont}
+\newcommand{\Cfonti}{\fontsize{8.5}{7.2}\selectfont}
+\newcommand{\themename}{\textbf{\textsc{metropolis}}\xspace}
+\newcommand{\powerset}{\mathcal{P}}
+\newcommand{\R}{\rm I\!R}
+\newcommand{\N}{\rm I\!N}
+\newcommand{\A}{\mathbf{A}}
+\newcommand{\poset}{(A, \leq^{\mathbf{A}})}
+\newcommand{\Nand}{\wedge}
+
+\newcommand{\refl}{\forall x\;x\leq x}
+\newcommand{\Nrefl}{{A}_{\leq R}}
+\newcommand{\anti}{\forall x\forall y\;\left( \left( x\leq y\wedge y\leq
+x\right) \rightarrow x\equiv y\right)}
+\newcommand{\Nanti}{{A}_{\leq A}}
+\newcommand{\trans}{\forall x\forall y\forall z\;\left( (x\leq y\wedge
+y\leq z)\rightarrow x\leq z\right)}
+\newcommand{\Ntrans}{{A}_{\leq T}}
+\newcommand{\sCot}{\forall x\forall y\;(x\leq x\;\mathsf{s}\ y\wedge y\leq x\;\mathsf{s}\;y)}
+\newcommand{\NsCot}{{A}_{\mathsf{s}esC}}
+\newcommand{\sLesCot}{\forall x\forall y\forall z\;\left( (x\leq
+z\wedge y\leq z)\rightarrow x\;\text{$\mathsf{s\;}$}y\leq z\right)}
+\newcommand{\NsLesCot}{{A}_{\mathsf{s}\leq C}}
+\newcommand{\iCot}{\forall x\forall y\;(x\;\mathsf{i}\;y\leq
+x\wedge x\;\mathsf{i}\;y\leq y)}
+\newcommand{\NiCot}{{A}_{\mathsf{i}esC}}
+\newcommand{\iGrCot}{\forall x\forall y\forall z\;\left( (z\leq
+x\wedge z\leq y)\rightarrow z\leq x\;\mathsf{i}\;y\right)}
+\newcommand{\NiGrCot}{{A}_{\mathsf{i}\geq C}}
+\newcommand{\Tau}{\tau _{Ret}}
+\newcommand{\Poset}{(A,\leq ^{\mathbf{A}})}
+\newcommand{\assoc}{\forall x\forall y\forall
+z\;(x\;\mathsf{s}$\ $y)\;\mathsf{s}\;z\leq x\;\mathsf{s}\;(y\;\mathsf{s}\;z)}
+\newcommand{\acot}{Dis1\rightarrow CancDobl}
+
+\newcommand{\idistr}{\forall xyz\;(x\;\mathsf{i}\
+y)\;\mathsf{s}\;(x\;\mathsf{i}\;z)\equiv x\;\mathsf{i}\;(y\;\mathsf{s}%
+\;z)}
+\newcommand{\myconj}{x\;\mathsf{i}\;z\equiv y\;\mathsf{%
+i}\;z\wedge x\;\mathsf{s}\;z\equiv y\;\mathsf{s}\;z}
+
+\begin{document}
+
+\begin{frame}{Ret}
+  \begin{center}
+
+    Sea $\tau _{Ret}=(\emptyset ,\{\mathsf{s}^{2},\mathsf{i}^{2}\},\{\leq
+    ^{2}\},a)$. Y sea $Ret=(\Sigma _{Ret},\tau _{Ret})$, donde $\Sigma _{Ret}$
+    es el siguiente conjunto de sentencias:
+    \pause
+    \begin{align}
+       \Nrefl &= \refl \nonumber\\
+       \Nanti &= \anti \nonumber \\
+       \Ntrans &= \trans \nonumber \\
+       \NsCot &= \sCot \nonumber \\
+       \NsLesCot &= \sLesCot \nonumber \\
+       \NiCot &= \iCot \nonumber \\
+       \NiGrCot &= \iGrCot \nonumber
+    \end{align}
+    \setcounter{equation}{0}
+
+    \stepcounter{beamerpauses}
+
+
+  \end{center}
+\end{frame}
+
+\begin{frame}{Ret}
+  Daremos pruebas formales para las siguientes sentencias:
+  \stepcounter{beamerpauses}
+  \begin{itemize}[<+->]
+
+  \item $ \phi = \assoc $
+  \item  $ \psi = \acot $
+  \\ Donde \\ $Dis1 = \forall xyz\;(x\;\mathsf{i}\
+  y)\;\mathsf{s}\;(x\;\mathsf{i}\;z)\equiv x\;\mathsf{i}\;(y\;\mathsf{s}%
+  \;z)$
+  \\ $ CancDobl = \forall xy\left( \exists z(x\;\mathsf{i}\;z\equiv y\;\mathsf{%
+  i}\;z\wedge x\;\mathsf{s}\;z\equiv y\;\mathsf{s}\;z)\rightarrow x\equiv
+  y\right)$
+  \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}{Modelos de Ret: $ \Nrefl, \Nanti, \Ntrans$}
+
+  %% Comenzaremos estudiando qué significa cada axioma de Ret:
+  \begin{itemize}[<+->]
+
+    \item $ \A \models \Nrefl \Nand \Nanti \Nand \Ntrans $ si y sólo si
+    $\poset$ es un poset
+
+    \item \textbf{Observación:} Una estructura $\A$ de tipo $\tau$ puede
+            satisfacer los 3 axiomas pero esto no significa que las operaciones
+            $ s^{\A} $ e $ i^{\A} $ sean las operaciones supremo e ínfimo respecto
+            al orden $ \leq^{\A} $.
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Modelos de Ret: $\Nrefl, \Nanti, \Ntrans, \NsCot, \NsLesCot$}
+  Si $ \A \models \Nrefl \Nand \Nanti \Nand \Ntrans $ entonces:
+  \begin{itemize}[<+->]
+
+    \item $\A \models \NsCot$ si y sólo si $(a\ s^{\A}\ b)$ es cota superior
+    de $\{a,b\}$ en $\poset$ cualesquiera sean $a$ y $b$.
+    \item $\A \models \NsLesCot$ si y sólo si $(a\ s^{\A}\ b)$
+    es menor o igual a toda cota superior de $\{a,b\}$ cualesquiera sean $a$ y $b$
+    \item $\A$ cumplirá los axiomas
+    $\Nrefl, \Nanti, \Ntrans, \NsCot\ y\ \NsLesCot$ si y sólo si $\leq^{\A}$
+    es un orden parcial y $s^{\A}$ es la operación supremo respecto del orden
+    $\leq^{\A}$.
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Modelos de Ret}
+  $\A$ es un modelo de $Ret$ si y sólo si se cumple que:
+  \begin{itemize}[<+->]
+    \pause
+    \item $\poset$ es un orden parcial
+    \item $s^{\A}$ es el supremo en el poset $\poset$
+    \item $i^{\A}$ es el ínfimo en el poset $\poset$
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Estructura de Prueba}
+  Encontraremos una prueba formal en Ret de la sentencia:
+  \begin{center}
+    $\assoc$
+  \end{center}
+  \pause
+
+  Forma de encontrar la prueba formal:
+  \pause
+  \begin{enumerate}[<+->]
+
+    \item Prueba Matemática
+    \item Prueba Formal
+  \end{enumerate}
+\end{frame}
+
+
+\begin{frame}{$\assoc$: Prueba Matemática}
+  \begin{itemize}[<+->]
+
+    \item Sean $a, b, c$ elementos de A fijos.
+    \item Probaremos que
+      \begin{center}
+        $ (a\ s\ b)\ s\ c  \leq a\ s\ (b\ s\ c) $
+      \end{center}
+    \item Sabemos por $\NsCot$ que
+      \begin{align}
+        &a \leq a\ s\ (b\ s\ c) \label{eq1} \\
+        &b\ s\ c \leq a\ s\ (b\ s\ c) \label{eq2}
+      \end{align}
+    \item Aplicandolo nuevamente, sabemos que
+      \begin{align}
+        &b \leq (b\ s\ c) \label{eq3}\\
+        &c \leq (b\ s\ c) \label{eq4}
+      \end{align}
+
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}{$\assoc$: Prueba Matemática}
+  \begin{itemize}[<+->]
+
+    \item Luego, por \eqref{eq2}, \eqref{eq3} y $\Ntrans$ tenemos
+      \begin{align}
+        &b \leq a\ s\ (b\ s\ c) \label{eq5}
+      \end{align}
+
+    \item Y por \eqref{eq2}, \eqref{eq4} y $\Ntrans$ tenemos
+    \begin{align}
+      &c \leq a\ s\ (b\ s\ c) \label{eq6}
+    \end{align}
+
+    \item Es decir, hasta aquí hemos probado que
+
+      \begin{align}
+        &a \leq a\ s\ (b\ s\ c) \label{eq1} \\
+        &b \leq a\ s\ (b\ s\ c) \label{eq5} \\
+        &c \leq a\ s\ (b\ s\ c) \label{eq6}
+      \end{align}
+
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}{$\assoc$: Prueba Matemática}
+  \begin{itemize}[<+->]
+    \item Por $\NsLesCot$, tomando \\
+      \begin{center}
+        $x = a$ \\
+        $y = b$ \\
+        $z = a\ s\ (b\ s\ c)$
+      \end{center}
+      tenemos que
+        \begin{align}
+          &a\ s\ b  \leq a\ s\ (b\ s\ c) \label{eq7}
+        \end{align}
+
+    \item Finalmente, si aplicamos nuevamente $\NsLesCot$ tomando\\
+    \begin{center}
+      $x = a\ s\ b$ \\
+      $y = c$ \\
+      $z = a\ s\ (b\ s\ c)$
+    \end{center}
+
+     obtenemos
+      \begin{align}
+        &(a\ s\ b)\ s\ c  \leq a\ s\ (b\ s\ c) \label{eq7}
+      \end{align}
+    \item Como $a, b, c$ eran elementos cualesquiera, probamos que
+      \begin{center}
+        $\assoc$
+      \end{center}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{$\assoc$: Prueba Formal}
+  Ahora daremos la prueba formal en $Ret$ de la sentencia en cuestión
+\end{frame}
+
+\begin{frame}{$\assoc$: Prueba Formal}
+% New command to change font size
+\Cfonta
+  \begin{enumerate}[<+->]
+    \item $ \sCot $ \hfill(AXIOMAPROPIO)
+    \item $ a \leq a\ s\ (b\ s\ c)\Nand (b\ s\ c)\leq a\ s\ (b\ s\ c) $ \hfill(PARTICULARIZACIONx2(1))
+    \item $ a \leq a\ s\ (b\ s\ c)$ \hfill(CONJELIM(2))
+    \item $ b\ s\ c \leq a\ s\ (b\ s\ c)$ \hfill(CONJELIM(2))
+    \item $ b \leq b\ s\ c \Nand c \leq b\ s\ c $ \hfill(PARTICULARIZACIONx2(1))
+    \item $ b \leq (b\ s\ c)$ \hfill(CONJELIM(5))
+    \item $ c \leq (b\ s\ c)$ \hfill(CONJELIM(5))
+    \item $ b \leq (b\ s\ c) \Nand b\ s\ c \leq a\ s\ (b\ s\ c)$ \hfill(CONJINT(6,4))
+    \item $ \trans $ \hfill(AXIOMAPROPIO)
+    \item $ (b \leq (b\ s\ c) \Nand (b\ s\ c) \leq a\ s\ (b\ s\ c)) \rightarrow (b \leq a\ s\ (b\ s\ c))$ \hfill(PARTICULARIZACIONx3(9))
+    \item $ b \leq a\ s\ (b\ s\ c) $ \hfill(MODUSPONENS(8,10))
+    \item $ c \leq (b\ s\ c) \Nand  b\ s\ c \leq a\ s\ (b\ s\ c) $ \hfill(CONJINT(7,4))
+    \item $ (c \leq (b\ s\ c) \Nand (b\ s\ c) \leq a\ s\ (b\ s\ c)) \rightarrow (c \leq a\ s\ (b\ s\ c))$ \hfill(PARTICULARIZACIONx3(9))
+    \item $ c \leq a\ s\ (b\ s\ c) $ \hfill(MODUSPONENS(12,13))
+    \seti
+  \end{enumerate}
+
+    %% Cortar acá!
+
+  \setcounter{equation}{0}
+
+\end{frame}
+
+
+\begin{frame}{$\assoc$: Prueba Formal}
+% New command to change font size
+\Cfontb
+
+\begin{enumerate}[<+->]
+  \conti
+  \item $ a \leq a\ s\ (b\ s\ c) \Nand b \leq a\ s\ (b\ s\ c)$ \hfill(CONJINT(3,11))
+  \item $ \sLesCot $ \hfill(AXIOMAPROPIO)
+  \item $ (a \leq a\ s\ (b\ s\ c) \Nand b \leq a\ s\ (b\ s\ c)) \rightarrow ((a\ s\ b) \leq a\ s\ (b\ s\ c)) $ \hfill(PARTICULARIZACIONx3(16))
+  \item $ (a\ s\ b) \leq a\ s\ (b\ s\ c)$ \hfill(MODUSPONENS(15,17))
+
+  \item $ a \leq a\ s\ (b\ s\ c) \Nand b \leq a\ s\ (b\ s\ c)$ \hfill(CONJINT(3,11))
+  \item $ \sLesCot $ \hfill(AXIOMAPROPIO)
+  \item $ (a \leq a\ s\ (b\ s\ c) \Nand b \leq a\ s\ (b\ s\ c)) \rightarrow ((a\ s\ b) \leq a\ s\ (b\ s\ c)) $ \hfill(PARTICULARIZACIONx3(16))
+  \item $ (a\ s\ b) \leq a\ s\ (b\ s\ c)$ \hfill(MODUSPONENS(15,17))
+  \item $ ((a\ s\ b) \leq a\ s\ (b\ s\ c) \Nand c \leq a\ s\ (b\ s\ c)) \rightarrow ((a\ s\ b)\ s\ c \leq a\ s\ (b\ s\ c)) $ \hfill(PARTICULARIZACIONx3(16))
+  \item $ (a\ s\ b) \leq a\ s\ (b\ s\ c) \Nand c \leq a\ s\ (b\ s\ c) $ \hfill(CONJINT(18,14))
+  \item $ (a\ s\ b)\ s\ c \leq a\ s\ (b\ s\ c) $ \hfill(MODUSPONENS(20,19))
+  \item $ \forall x \forall y \forall z (x\ s\ y)\ s\ z \leq x\ s\ (y\ s\ z)$ \hfill(GENERALIZACIÓNx3(21))
+  \item $ \forall x \forall y \forall z (x\ s\ y)\ s\ z \leq x\ s\ (y\ s\ z)$ \hfill(CONCLUSION(22))
+  \seti
+\end{enumerate}
+
+\end{frame}
+
+
+
+\begin{frame}{\Cfonti$\idistr \rightarrow \forall x\ \forall y\ (\exists z (\myconj) \rightarrow x\ \equiv y)$:}
+
+  Ahora encontraremos una prueba formal en Ret de la sentencia $\psi$:
+  \begin{center}
+    $\acot$
+  \end{center}
+  \pause
+  Utilizaremos la misma forma de encontrar la prueba formal usada para probar
+  $\phi$
+
+\end{frame}
+
+
+\begin{frame}{\Cfonti$\idistr \rightarrow \forall x\ \forall y\ (\exists z (\myconj) \rightarrow x\ \equiv y)$: Prueba Matemática}
+
+  Para probar $\psi$, probaremos primero un teorema auxiliar:
+  \begin{center}
+    $\forall x \forall y ((x\ s\ y)\ i\ x \equiv x)$
+  \end{center}
+  \pause
+
+  \begin{itemize}[<+->]
+
+    \item Sean $a, b$ elementos de A fijos.
+    \item Probaremos que
+    \begin{center}
+      $(a\ s\ b)\ i\ a \equiv a$
+    \end{center}
+
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}{\Cfonti$\idistr \rightarrow \forall x\ \forall y\ (\exists z (\myconj) \rightarrow x\ \equiv y)$:
+   Prueba Matemática}
+  \begin{itemize}[<+->]
+
+    \item Sabemos, por axioma $\NsCot$ que
+    \begin{align}
+      a \leq a\ s\ b \label{eq8}
+    \end{align}
+
+    \item Y por $\Nrefl$ sabemos que
+    \begin{align}
+      a \leq a \label{eq9}
+    \end{align}
+
+    \item Luego, por (1), (2) y aplicando el axioma $\NiGrCot$ sabemos
+    \begin{align}
+      a \leq (a\ s\ b)\ i\ a \label{eq10}
+    \end{align}
+
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}{\Cfonti$\idistr \rightarrow \forall x\ \forall y\ (\exists z (\myconj) \rightarrow x\ \equiv y)$:
+   Prueba Matemática}
+  \begin{itemize}[<+->]
+    \item Por otra parte, por $\NiCot$ tenemos que
+    \begin{align}
+      (a\ s\ b)\ i\ a \leq a \label{eq11}
+    \end{align}
+
+    \item Finalmente, por (3), (4) y aplicando el axioma $\Nanti$ obtenemos
+    \begin{align}
+      (a\ s\ b)\ i\ a \equiv a \label{eq11}
+    \end{align}
+    \item Como $a, b$ eran elementos cualesquiera, probamos que
+    \begin{center}
+      $\forall x \forall y ((x\ s\ y)\ i\ x \equiv x)$
+    \end{center}
+    A partir de ahora, llamaremos ($*$) a este teorema
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}{\Cfonti$\idistr \rightarrow \forall x\ \forall y\ (\exists z (\myconj) \rightarrow x\ \equiv y)$:
+   Prueba Matemática}
+  Ahora si probaremos
+  \begin{center}
+    $\acot$
+  \end{center}
+  \pause
+  \begin{itemize}[<+->]
+
+    \item Primero, supongamos que se cumple que
+    \begin{align}
+      \forall x \forall y \forall z (x\ i\ y) s\ (x\ i\ z) \equiv x\ i\ (y\ s\ z) \label{eq11}
+    \end{align}
+    \item Probaremos que
+    \begin{center}
+      $\forall x \forall y (\exists z ((x\ i\ z \equiv y\ i\ z \wedge x\ s\ z \equiv y\ s\ z) \rightarrow x \equiv y))$
+    \end{center}
+
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}{\Cfonti$\idistr \rightarrow \forall x\ \forall y\ (\exists z (\myconj) \rightarrow x\ \equiv y)$:
+   Prueba Matemática}
+  \begin{itemize}[<+->]
+
+    \item Sean $a, b$ dos elementos de A fijos
+    \item Probaremos que
+    \begin{center}
+      $\exists z (a\ i\ z \equiv b\ i\ z \wedge a\ s\ z \equiv b\ s\ z) \rightarrow a \equiv b$
+    \end{center}
+    \item Supongamos que:
+    \begin{center}
+      $\exists z (a\ i\ z \equiv b\ i\ z \wedge a\ s\ z \equiv b\ s\ z)$
+    \end{center}
+
+    \item Supongamos $c$ un elemento que cumple
+    \begin{align}
+      (a\ i\ c) \equiv (b\ i\ c) \wedge (a\ s\ c) \equiv (b\ s\ c)
+    \end{align}
+    \item Probaremos que
+    \begin{center}
+      $a \equiv b$
+    \end{center}
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}{\Cfonti$\idistr \rightarrow \forall x\ \forall y\ (\exists z (\myconj) \rightarrow x\ \equiv y)$:
+   Prueba Matemática}
+  \begin{itemize}[<+->]
+
+    \item Por teorema ($*$) sabemos que
+      \begin{align}
+        (b\ s\ c)\ i\ b \equiv b
+      \end{align}
+    \item Por (7):
+      \begin{align}
+        (b\ s\ c)\ i\ b \equiv (a\ s\ c)\ i\ b
+      \end{align}
+    \item Por (6):
+      \begin{align}
+        (a\ s\ c)\ i\ b \equiv (a\ i\ b)\ s\ (c\ i\ b)
+      \end{align}
+    \item Nuevamente por (7):
+      \begin{align}
+        (a\ i\ b)\ s\ (c\ i\ b) \equiv (a\ i\ b)\ s\ (c\ i\ a)
+      \end{align}
+
+    \item Nuevamente por (6) y por conmutatividad de $i$:
+      \begin{align}
+        (a\ i\ b)\ s\ (c\ i\ a) \equiv (b\ s\ c)\ i\ a
+      \end{align}
+
+    \item Y así, por (7):
+      \begin{align}
+        (b\ s\ c)\ i\ a \equiv (a\ s\ c)\ i\ a
+      \end{align}
+
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}{\Cfonti$\idistr \rightarrow \forall x\ \forall y\ (\exists z (\myconj) \rightarrow x\ \equiv y)$:
+   Prueba Matemática}
+  \begin{itemize}[<+->]
+
+    \item Finalmente, por ($*$):
+      \begin{align}
+        (a\ s\ c)\ i\ a \equiv a
+      \end{align}
+    \item Es decir,
+      \begin{center}
+        $a \equiv b$
+      \end{center}
+
+    \item Por lo tanto, se cumple que
+      \begin{center}
+        $\acot$
+      \end{center}
+
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{\Cfonti$\idistr \rightarrow \forall x\ \forall y\ (\exists z (\myconj) \rightarrow x\ \equiv y)$:
+   Prueba Formal}
+  \begin{center}
+    Ahora daremos la prueba formal en Ret de la sentencia en cuestión
+    \pause
+  \end{center}
+  Utilizaremos los siguientes teoremas cuyas pruebas formales son dejadas al lector
+  \begin{itemize}[<+->]
+    \item $\forall x\ \forall y\ (x\ s\ y)\ i\ x \equiv x$  (TeoremaAbsorv)
+    \item $\forall x\ \forall y\ (x\ i\ y) \equiv (y\ i\ x)$  (TeoremaConmut)
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}{\Cfonti$\idistr \rightarrow \forall x\ \forall y\ (\exists z (\myconj) \rightarrow x\ \equiv y)$:
+    Prueba Formal
+}
+% New command to change font size
+\Cfont
+  \begin{enumerate}[<+->]
+    \item $ \idistr $ \hfill(HIPÓTESIS1)
+    %\item $ \forall x\ \forall y\ (\exists z (\myconj) \rightarrow x\ \equiv y)$ \hfill(HIPÓTESIS2)
+    \item $ \exists z\ ((a\ i\ z) \equiv (b\ i\ z) \Nand (a\ s\ z) \equiv (b\ i\ z))$ \hfill(HIPÓTESIS2)
+    \item $ ((a\ i\ c) \equiv (b\ i\ c) \Nand (a\ s\ c) \equiv (b\ i\ c))$ \hfill(ELECCION(2))
+    \item $ \forall x\ \forall y\ (x\ s\ y)\ i\ x \equiv x$ \hfill(TEOREMAABSORV)
+    \item $ (b\ s\ c)\ i\ b \equiv b$ \hfill(PARTICULARIZACIONx2(4))
+    \item $ (a\ s\ c) \equiv (b\ s\ c) $ \hfill(CONJELIM(3))
+    \item $ (a\ i\ c) \equiv (b\ i\ c) $ \hfill(CONJELIM(3))
+
+    \item $ (a\ s\ c)\ i\ b \equiv b$ \hfill(REEMP(6,5))
+    \item $ (b\ i\ a)\ s\ (b\ i\ c) \equiv b\ i\ (a\ s\ c) $ \hfill(PARTICULARIZACIONx3(1))
+    \item $ b\ i\ (a\ s\ c) \equiv b$ \hfill(TEOREMACONMUT(8))
+    \item $ (b\ i\ a)\ s\ (b\ i\ c) \equiv b$ \hfill(REEMP(9,10))
+
+    \item $ (b\ i\ a)\ s\ (a\ i\ c) \equiv b$ \hfill(REEMP(7,11))
+    \item $ (a\ i\ b)\ s\ (a\ i\ c) \equiv b$ \hfill(TEOREMACONMUT(12))
+    \item $ (a\ i\ b)\ s\ (a\ i\ c) \equiv a\ i\ (b\ s\ c)$ \hfill(PARTICULARIZACIONx3(1))
+    \item $ a\ i\ (b\ s\ c) \equiv b $ \hfill(REEMP(14,13))
+    \item $ a\ i\ (a\ s\ c) \equiv b $ \hfill(REEMP(6,15))
+    \item $ (a\ s\ c)\ i\ a \equiv b$ \hfill(TEOREMACONMUT(16))
+    \item $ (a\ s\ c)\ i\ a \equiv a$ \hfill(PARTICULARIZACIONx2(4))
+    \item $ a \equiv b$ \hfill(TESIS2REEMP(18,17))
+    \item $ \exists z\ ((a\ i\ z) \equiv (b\ i\ z) \Nand (a\ s\ z) \equiv (b\ i\ z)) \rightarrow a\ \equiv b$ \hfill(CONCLUSION)
+    \item $ \forall x\ \forall y\ (\exists z (\myconj) \rightarrow x\ \equiv y)$ \hfill(TESIS1GENERALIZACIÓNx2(20))
+    \item $ \idistr \rightarrow \forall x\ \forall y\ (\exists z (\myconj) \rightarrow x\ \equiv y)$ \hfill(CONCLUSION)
+    %% Cortar acá!
+
+  \end{enumerate}
+  \setcounter{equation}{0}
+
+\end{frame}
+
+
+%\Nrefl, \Nanti, \Ntrans, \NsCot\ y\ \NsLesCot$
+
+
+%\begin{frame}{Absurdo}
+%  \begin{itemize}[<+->]
+%
+%    \item Vimos que $a$ $X$ y que $X$ $s$.
+%  \end{itemize}
+%\end{frame}
+
+\end{document}
