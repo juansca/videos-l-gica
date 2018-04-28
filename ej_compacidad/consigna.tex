@@ -1,0 +1,103 @@
+
+\documentclass{article}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage[a4paper, margin=0.9in]{geometry}
+
+\setcounter{MaxMatrixCols}{10}
+%TCIDATA{OutputFilter=LATEX.DLL}
+%TCIDATA{Version=5.50.0.2953}
+%TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
+%TCIDATA{BibliographyScheme=Manual}
+%TCIDATA{Created=Mon Dec 09 16:16:07 2002}
+%TCIDATA{LastRevised=Saturday, November 04, 2017 08:11:05}
+%TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
+%TCIDATA{<META NAME="DocumentShell" CONTENT="General\Blank Document">}
+%TCIDATA{CSTFile=LaTeX article (bright).cst}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\newenvironment{proof}[1][Proof]{\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+\input{tcilatex}
+\begin{document}
+
+
+\begin{enumerate}
+\item Sea $\tau _{Ret}=(\emptyset ,\{\mathsf{s}^{2},\mathsf{i}^{2}\},\{\leq
+^{2}\},a)$. Y sea $Ret=(\Sigma _{Ret},\tau _{Ret})$, donde $\Sigma _{Ret}$
+es el siguiente conjunto de sentencias:%
+\begin{eqnarray*}
+\mathrm{A}_{\leq R} &=&\forall x\;x\leq x \\
+\mathrm{A}_{\leq A} &=&\forall x\forall y\;\left( \left( x\leq y\wedge y\leq
+x\right) \rightarrow x\equiv y\right)  \\
+\mathrm{A}_{\leq T} &=&\forall x\forall y\forall z\;\left( (x\leq y\wedge
+y\leq z)\rightarrow x\leq z\right)  \\
+\mathrm{A}_{\mathsf{s}esC} &=&\forall x\forall y\;(x\leq x\;\mathsf{s}%
+\;y\wedge y\leq x\;\mathsf{s}\;y) \\
+\mathrm{A}_{\mathsf{s}\leq C} &=&\forall x\forall y\forall z\;\left( (x\leq
+z\wedge y\leq z)\rightarrow x\;\text{$\mathsf{s\;}$}y\leq z\right)  \\
+\mathrm{A}_{\mathsf{i}esC} &=&\forall x\forall y\;(x\;\mathsf{i}\;y\leq
+x\wedge x\;\mathsf{i}\;y\leq y) \\
+\mathrm{A}_{\mathsf{i}\geq C} &=&\forall x\forall y\forall z\;\left( (z\leq
+x\wedge z\leq y)\rightarrow z\leq x\;\mathsf{i}\;y\right) 
+\end{eqnarray*}
+
+\begin{enumerate}
+\item Note que dada una estructura $\mathbf{A}$\ de tipo $\tau _{Ret}$, se
+tiene que $\mathbf{A}$ satisface los axiomas $\mathrm{A}_{\leq R}$, $\mathrm{%
+A}_{\leq A}$ y $\mathrm{A}_{\leq T}$ sii $(A,\leq ^{\mathbf{A}})$ es un
+poset.
+
+\item Describa las estructuras que satisfacen las sentencias $\mathrm{A}%
+_{\leq R}$, $\mathrm{A}_{\leq A}$, $\mathrm{A}_{\leq T}$ y $\mathrm{A}_{%
+\mathsf{s}esC}$
+
+\item Describa las estructuras que satisfacen las sentencias $\mathrm{A}%
+_{\leq R}$, $\mathrm{A}_{\leq A}$, $\mathrm{A}_{\leq T}$ y $\mathrm{A}_{%
+\mathsf{s}\leq C}$
+
+\item Describa las estructuras que son modelos de $Ret$
+
+\item De una prueba en $Ret$ de la sentencia $\forall x\forall y\forall
+z\;(x\;\mathsf{s}$\ $y)\;\mathsf{s}\;z\leq x\;\mathsf{s}\;(y\;\mathsf{s}\;z)$
+
+\item De una prueba en $Ret$ de la sentencia $(\forall xyz\;(x\;\mathsf{i}\
+y)\;\mathsf{s}\;(x\;\mathsf{i}\;z)\equiv x\;\mathsf{i}\;(y\;\mathsf{s}%
+\;z)\rightarrow \forall xy\left( \exists z(x\;\mathsf{i}\;z\equiv y\;\mathsf{%
+i}\;z\wedge x\;\mathsf{s}\;z\equiv y\;\mathsf{s}\;z)\rightarrow x\equiv
+y\right) )$
+\end{enumerate}
+
+\item Sea $T$ una teor\'{\i}a tal que para cada $n\in \mathbf{N}$ hay un
+modelo $\mathbf{A}_{n}$ de $T$ tal que $\mathbf{A}_{n}$ tiene al menos $n$
+elementos (o sea una teor\'{\i}a que tiene modelos finitos tan grandes se
+quiera). Probar que $T$ tiene un modelo infinito. Saque como corolario que
+si $\tau $ es un tipo cualquiera, entonces no hay una sentencia $\varphi \in
+S^{\tau }$ tal que para cada modelo de tipo $\tau $, se de que $\mathbf{A}%
+\vDash \varphi $ sii $A$ es finito. Analogamente, tampoco hay una sentencia $%
+\varphi \in S^{\tau }$ tal que para cada modelo de tipo $\tau $, se de que $%
+\mathbf{A}\vDash \varphi $ sii $A$ es infinito.
+\end{enumerate}
+
+\end{document}

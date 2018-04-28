@@ -1,0 +1,181 @@
+\documentclass[10pt]{beamer}
+
+\usetheme{metropolis}
+\usepackage{appendixnumberbeamer}
+
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+
+\usepackage{booktabs}
+
+\usepackage{pgfplots}
+\usepgfplotslibrary{dateplot}
+
+\usepackage{xspace}
+
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{amsmath}
+
+
+\newcounter{saveenumi}
+\newcommand{\seti}{\setcounter{saveenumi}{\value{enumi}}}
+\newcommand{\conti}{\setcounter{enumi}{\value{saveenumi}}}
+
+\resetcounteronoverlays{saveenumi}
+
+
+\newcommand{\Cfontc}{\fontsize{10.7}{9.5}\selectfont}
+\newcommand{\Cfonta}{\fontsize{6.7}{9.5}\selectfont}
+\newcommand{\Cfontb}{\fontsize{5.7}{9.5}\selectfont}
+\newcommand{\Cfont}{\fontsize{5.5}{7.2}\selectfont}
+\newcommand{\Cfonti}{\fontsize{8.5}{7.2}\selectfont}
+\newcommand{\themename}{\textbf{\textsc{metropolis}}\xspace}
+\newcommand{\powerset}{\mathcal{P}}
+\newcommand{\R}{\rm I\!R}
+\newcommand{\N}{\rm I\!N}
+\newcommand{\A}{\mathbf{A}}
+\newcommand{\poset}{(A, \leq^{\mathbf{A}})}
+\newcommand{\Nand}{\wedge}
+
+\newcommand{\refl}{\forall x\;x\leq x}
+\newcommand{\Nrefl}{{A}_{\leq R}}
+\newcommand{\anti}{\forall x\forall y\;\left( \left( x\leq y\wedge y\leq
+x\right) \rightarrow x\equiv y\right)}
+\newcommand{\Nanti}{{A}_{\leq A}}
+\newcommand{\trans}{\forall x\forall y\forall z\;\left( (x\leq y\wedge
+y\leq z)\rightarrow x\leq z\right)}
+\newcommand{\Ntrans}{{A}_{\leq T}}
+\newcommand{\sCot}{\forall x\forall y\;(x\leq x\;\mathsf{s}\ y\wedge y\leq x\;\mathsf{s}\;y)}
+\newcommand{\NsCot}{{A}_{\mathsf{s}esC}}
+\newcommand{\sLesCot}{\forall x\forall y\forall z\;\left( (x\leq
+z\wedge y\leq z)\rightarrow x\;\text{$\mathsf{s\;}$}y\leq z\right)}
+\newcommand{\NsLesCot}{{A}_{\mathsf{s}\leq C}}
+\newcommand{\iCot}{\forall x\forall y\;(x\;\mathsf{i}\;y\leq
+x\wedge x\;\mathsf{i}\;y\leq y)}
+\newcommand{\NiCot}{{A}_{\mathsf{i}esC}}
+\newcommand{\iGrCot}{\forall x\forall y\forall z\;\left( (z\leq
+x\wedge z\leq y)\rightarrow z\leq x\;\mathsf{i}\;y\right)}
+\newcommand{\NiGrCot}{{A}_{\mathsf{i}\geq C}}
+\newcommand{\Tau}{\tau _{Ret}}
+\newcommand{\Poset}{(A,\leq ^{\mathbf{A}})}
+\newcommand{\assoc}{\forall x\forall y\forall
+z\;(x\;\mathsf{s}$\ $y)\;\mathsf{s}\;z\leq x\;\mathsf{s}\;(y\;\mathsf{s}\;z)}
+\newcommand{\acot}{(\forall xyz\;(x\;\mathsf{i}\
+y)\;\mathsf{s}\;(x\;\mathsf{i}\;z)\equiv x\;\mathsf{i}\;(y\;\mathsf{s}%
+\;z)\rightarrow \forall xy\left( \exists z(x\;\mathsf{i}\;z\equiv y\;\mathsf{%
+i}\;z\wedge x\;\mathsf{s}\;z\equiv y\;\mathsf{s}\;z)\rightarrow x\equiv
+y\right) )}
+\newcommand{\idistr}{\forall xyz\;(x\;\mathsf{i}\
+y)\;\mathsf{s}\;(x\;\mathsf{i}\;z)\equiv x\;\mathsf{i}\;(y\;\mathsf{s}%
+\;z)}
+\newcommand{\myconj}{x\;\mathsf{i}\;z\equiv y\;\mathsf{%
+i}\;z\wedge x\;\mathsf{s}\;z\equiv y\;\mathsf{s}\;z}
+
+\begin{document}
+
+\begin{frame}{Teorema de Compacidad}
+
+    \begin{itemize}[<+->]
+      \item Sea $T$ una teor\'{\i}a tal que para cada $n\in \mathbf{N}$ hay un
+          modelo $\mathbf{A}_{n}$ de $T$ tal que $\mathbf{A}_{n}$ tiene al menos $n$
+          elementos. Probar que $T$ tiene un modelo infinito.
+      \item Saque como corolario que
+      si $\tau $ es un tipo cualquiera, entonces no hay una sentencia $\varphi \in
+      S^{\tau }$ tal que para cada modelo de tipo $\tau $, se de que $\mathbf{A}%
+      \vDash \varphi $ sii $A$ es finito. Analogamente, tampoco hay una sentencia $%
+      \varphi \in S^{\tau }$ tal que para cada modelo de tipo $\tau $, se de que $%
+      \mathbf{A}\vDash \varphi $ sii $A$ es infinito.
+    \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}{Teorema de Compacidad}
+  Probemos ahora que
+  \begin{center}
+    Si $T$ una teor\'{\i}a tal que para cada $n\in \mathbf{N}$ hay un
+    modelo $\mathbf{A}_{n}$ de $T$ tal que $\mathbf{A}_{n}$ tiene al menos $n$
+    elementos entonces $T$ tiene un modelo infinito.
+  \end{center}
+
+\end{frame}
+
+
+
+\begin{frame}{Teorema de Compacidad: $T$ tiene un modelo infinito}
+
+  \begin{itemize}[<+->]
+    \item Sea $\phi_{n}$ = $"$el universo del modelo tiene al menos $n$ elementos$"$
+    \item Sea $\Sigma = \{\phi_{n} : n \in \mathbb{N}\}$
+    \item \underline{Observación:} $\Sigma$ tiene infinitos elementos
+    \item Sea $\tau$ un tipo
+    \item Sea $T = (\Sigma, \tau)$ una teoría
+  \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}{Teorema de Compacidad: $T$ tiene un modelo infinito}
+
+  \begin{itemize}[<+->]
+    \item Por hipótesis, cada subconjunto finito de $\Sigma$ tiene un modelo
+    \item Por Teorema de Compacidad sabemos que $T$ tiene un modelo
+    \item Sea $\mathbb{A}$ dicho modelo
+  \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}{Teorema de Compacidad: $T$ tiene un modelo infinito}
+  \begin{itemize}[<+->]
+    \item Por definición de $\Sigma$:
+      \begin{itemize}
+        \item $n \leq |A|$, $\forall n \in \mathbb{N}$ donde $A$ es el universo de $\mathbb{A}$
+      \end{itemize}
+    \item Luego, $\mathbb{A}$ es infinito
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}{No hay una sentencia $\varphi \in
+S^{\tau }$ tal que para cada modelo de tipo $\tau $, se de que $\mathbf{A}%
+\vDash \varphi $ sii $A$ es finito.}
+  Ahora probemos por el absurdo que:
+  \begin{center}
+    Si $\tau $ es un tipo cualquiera, entonces no hay una sentencia $\varphi \in
+    S^{\tau }$ tal que para cada modelo de tipo $\tau $, se de que $\mathbf{A}%
+    \vDash \varphi $ sii $A$ es finito. Analogamente, tampoco hay una sentencia $%
+    \varphi \in S^{\tau }$ tal que para cada modelo de tipo $\tau $, se de que $%
+    \mathbf{A}\vDash \varphi $ sii $A$ es infinito.
+
+  \end{center}
+
+\end{frame}
+
+
+\begin{frame}{No hay una sentencia $\varphi \in
+S^{\tau }$ tal que para cada modelo de tipo $\tau $, se de que $\mathbf{A}%
+\vDash \varphi $ sii $A$ es finito.}
+  \begin{itemize}[<+->]
+    \item Sea $\tau$ un tipo cualquiera
+    \item Sea $\Sigma \subseteq S^{\tau}$ tal que $\mathbb{A} \vDash \Sigma$
+    si y sólo si $\mathbb{A}$ es finito
+    \item Luego, por la propiedad del item anterior, la teoría $(\Sigma, \tau)$ tiene
+    modelos finitos arbitrariamente grandes
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{No hay una sentencia $\varphi \in
+S^{\tau }$ tal que para cada modelo de tipo $\tau $, se de que $\mathbf{A}%
+\vDash \varphi $ sii $A$ es finito.}
+  \begin{itemize}
+    \item Así, por el lema probado anteriormente, $(\Sigma, \tau)$ tiene un modelo infinito
+  \end{itemize}
+  \pause
+  \begin{center}
+    \Cfontc $ABSURDO$
+  \end{center}
+\end{frame}
+
+\end{document}
