@@ -1,0 +1,110 @@
+
+\documentclass{article}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{amsmath}
+
+\usepackage[a4paper, margin=0.9in]{geometry}
+
+\setcounter{MaxMatrixCols}{10}
+%TCIDATA{OutputFilter=LATEX.DLL}
+%TCIDATA{Version=5.50.0.2953}
+%TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
+%TCIDATA{BibliographyScheme=Manual}
+%TCIDATA{Created=Mon Dec 09 16:16:07 2002}
+%TCIDATA{LastRevised=Saturday, November 04, 2017 08:11:05}
+%TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
+%TCIDATA{<META NAME="DocumentShell" CONTENT="General\Blank Document">}
+%TCIDATA{CSTFile=LaTeX article (bright).cst}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\newenvironment{proof}[1][Proof]{\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+\newcommand{\refl}{\forall x\;x\leq x}
+\newcommand{\Nrefl}{{A}_{\leq R}}
+\newcommand{\anti}{\forall x\forall y\;\left( \left( x\leq y\wedge y\leq
+x\right) \rightarrow x\equiv y\right)}
+\newcommand{\Nanti}{{A}_{\leq A}}
+\newcommand{\trans}{\forall x\forall y\forall z\;\left( (x\leq y\wedge
+y\leq z)\rightarrow x\leq z\right)}
+\newcommand{\Ntrans}{{A}_{\leq T}}
+\newcommand{\sCot}{\forall x\forall y\;(x\leq x\;\mathsf{s} ;y\wedge y\leq x\;\mathsf{s}\;y)}
+\newcommand{\NsCot}{{A}_{\mathsf{s}esC}}
+\newcommand{\sLesCot}{\forall x\forall y\forall z\;\left( (x\leq
+z\wedge y\leq z)\rightarrow x\;\text{$\mathsf{s\;}$}y\leq z\right)}
+\newcommand{\NsLesCot}{{A}_{\mathsf{s}\leq C}}
+\newcommand{\iCot}{\forall x\forall y\;(x\;\mathsf{i}\;y\leq
+x\wedge x\;\mathsf{i}\;y\leq y)}
+\newcommand{\NiCot}{{A}_{\mathsf{i}esC}}
+\newcommand{\iGrCot}{\forall x\forall y\forall z\;\left( (z\leq
+x\wedge z\leq y)\rightarrow z\leq x\;\mathsf{i}\;y\right)}
+\newcommand{\NiGrCot}{{A}_{\mathsf{i}\geq C}}
+\newcommand{\Tau}{\tau _{Ret}}
+\newcommand{\Poset}{(A,\leq ^{\mathbf{A}})}
+\newcommand{\assoc}{\forall x\forall y\forall
+z\;(x\;\mathsf{s}$\ $y)\;\mathsf{s}\;z\leq x\;\mathsf{s}\;(y\;\mathsf{s}\;z)}
+\newcommand{\acot}{(\forall xyz\;(x\;\mathsf{i}\
+y)\;\mathsf{s}\;(x\;\mathsf{i}\;z)\equiv x\;\mathsf{i}\;(y\;\mathsf{s}%
+\;z)\rightarrow \forall xy\left( \exists z(x\;\mathsf{i}\;z\equiv y\;\mathsf{%
+i}\;z\wedge x\;\mathsf{s}\;z\equiv y\;\mathsf{s}\;z)\rightarrow x\equiv
+y\right) )}
+\begin{document}
+
+
+\begin{enumerate}
+\item Sea $\tau _{Ret}=(\emptyset ,\{\mathsf{s}^{2},\mathsf{i}^{2}\},\{\leq
+^{2}\},a)$. Y sea $Ret=(\Sigma _{Ret},\tau _{Ret})$, donde $\Sigma _{Ret}$
+es el siguiente conjunto de sentencias:%
+
+\begin{align}
+   \Nrefl &= \refl \\
+   \Nanti &= \anti \\
+   \Ntrans &= \trans \\
+   \NsCot &= \sCot \\
+   \NsLesCot &= \sLesCot \\
+   \NiCot &= \iCot \\
+   \NiGrCot &= \iGrCot \\
+\end{align}
+
+
+
+
+\begin{enumerate}
+\item Note que dada una estructura $\mathbf{A}$\ de tipo $\Tau$, se
+tiene que $\mathbf{A}$ satisface los axiomas $\Nrefl$, $\Nanti$ y $\Ntrans$
+sii $\Poset$ es un poset.
+
+\item Describa las estructuras que satisfacen las sentencias $\Nrefl$,
+$\Nanti$, $\Ntrans$ y $\NsCot$
+
+\item Describa las estructuras que satisfacen las sentencias $\Nrefl$,
+$\Nanti$, $\Ntrans$ y $\NsLesCot$
+
+\item Describa las estructuras que son modelos de $Ret$
+
+\item De una prueba en $Ret$ de la sentencia $\assoc$
+
+\item De una prueba en $Ret$ de la sentencia \\ $\acot$
+\end{enumerate}
+\end{enumerate}
+\end{document}
