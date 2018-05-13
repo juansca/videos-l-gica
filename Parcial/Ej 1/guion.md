@@ -124,7 +124,7 @@ matemáticas.
 
 ####### 17 ############
 
-2) Usando la prueba matemática como guía, construiremos la prueba formal.
+Luego, usando la prueba matemática como guía, construiremos la prueba formal.
 
 
 # Toma 6
@@ -215,64 +215,16 @@ Primero buscamos la prueba matemática y luego la formal.
 
 
 ########   #######
-Primero, probaremos un teorema auxiliar que utilizaremos más adelante.
-[DEJARLA COMO EJERCICIO]
-Veamos:
+Usaremos el teorema auxiliar en pantalla, el cual llamaremos a partir de ahora
+"teorema estrella".
+
+Recomendamos que se realice la prueba del mismo como ejercicio.
+
+probaremos un teorema auxiliar que utilizaremos más adelante.
 
 
 ########   #######
-Sean a, b elementos de A fijos
-
-
-
-########   #######
-Probaremos que
-[a s b] i a es igual que 'a'
-
-
-
-########   #######
-Sabemos, por axioma 's es cota' que
-
-'a es menor o igual que [a s b]'
-
-
-
-########   #######
-Y por el axioma 'menor o igual reflexivo' que
-
-'a es menor o igual que a'
-
-
-
-########   #######
-Así, por 1, 2 y aplicando el axioma 'i mayor o igual que toda cota' sabemos que
-
-
-'a es menor o igual que [(a s b) i a]'
-
-
-########   #######
-Por otra parte, por el axioma 'i es cota' tenemos que
-
-'[(a s b) i a] es menor o igual que "a"'
-
-
-
-########   #######
-Finalemente, por 3, 4 y aplicando el axioma 'menor o igual quentisimentrico'
-obtenemos que:
-
-[(a s b) i a] es igual que 'a'
-
-
-########   #######
-Y así, como a y b eran elementos cualesquiera, probamos la sentencia que queríamos.
-A partir de ahora lo llamaremos "teorema estrella" [ESTE RENOMBRE DEJARLO]
-
-
-########   #######
-Bueno, una vez probado lo anterior. Estamos en condiciones de probar la sentencia que queríamos.
+Ahora estamos en condiciones de probar la sentencia que queríamos.
 
 
 ########   #######
@@ -298,7 +250,7 @@ Probaremos, entonces, que se cumple la siguiente propiedad:
 
 
 ########   #######
-Supongamos que se cumple el antecedente de la implicación, es decir la siguiente sentencia.
+Supongamos que se cumple el antecedente de la implicación, es decir la sentencia en pantalla.
 [esperar 2seg]
 
 
@@ -322,33 +274,33 @@ Por teorema estrella, sabemos que
 --------------------------------------------------------------
 
 ########   #######
-Así, por el resultado (7) sabemos que [(a s c) es igual que (b s c)], por lo que
+Así, por el resultado (2) sabemos que [(a s c) es igual que (b s c)], por lo que
 
 [(b s c) i b] es igual que [(a s c) i b]
 
 
 
 ########   #######
-Y por la hipótesis mencionada en 6, tenemos que
+Y por la hipótesis mencionada en (1), tenemos que
 
 [(a s c) i b] es igual que [(a i b) s (c i b)]
 
 
 ########   #######
-Aplicando, nuevamente, el resultado 7 obtenemos que
+Aplicando, nuevamente, el resultado 2 obtenemos que
 
 [(a i b) s (c i b)] es igual que [(a i b) s (c i a)]
 
 
 ########   #######
-Ahora, de nuevo por la hipótesis 6 y por conmutatividad de i (cuya prueba se deja
+Ahora, de nuevo por la hipótesis 1 y por conmutatividad de i (cuya prueba se deja
 para el estudiante), sabemos  que
 
 [(a i b) s (c i a)] es igual que [(b s c) i a]
 
 
 ########   #######
-Y así, por 7
+Y así, por 2
 
 [(b s c) i a] es igual que [(a s c) i a]
 
@@ -368,7 +320,7 @@ Pero esto quiere decir que
 
 
 ########   #######
-Y así, hemos demostrado que se cumple en Ret la sentencia inicial que queriamos
+Y así, hemos demostrado que, en Ret, se cumple la sentencia inicial que queriamos
 probar.
 
 
