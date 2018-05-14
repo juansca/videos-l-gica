@@ -192,10 +192,91 @@ Ahora daremos la prueba formal en Ret de la sentencia en cuestión
 
 --------------------------------
 
-Por axioma propio, sabemos que
+$$$$$ Esperar 1 seg
 
+--------------------------------
+Notemos que nos tomaremos una pequeña licencia del formalismo aplicando
+más de una vez algunas reglas. Por ejemplo, en 2, aplicamos 2 veces la regla
+de particularización.
+En estos casos, el nombre de la regla irá seguido de [la letra X y el número
+correspondiente a la cantidad de aplicaciones sucesivas de la regla]
 
+$$$$$ Esperar 1 seg
+--------------------------------
 
+Notemos que en 1, 2 y 3 aplicamos el axioma (A s es cota) tomando
+[x igual a 'a'] y [ye igual a (b s c)] para obtener
+que [b s c es menor o igual a 'a s (b s c)'], como habiamos visto en la prueba
+matemática.
+
+--------------------------------
+
+$$$$$ Esperar 1 seg
+--------------------------------
+
+Esta vez, en 1, 3 y 5 aplicamos el mismo axioma que antes, pero esta vez tomando [x igual a b] y [ye igual a c] para obtener que
+[b es menor o igual a '(b s c)']
+--------------------------------
+
+$$$$$ Esperar 1 seg
+--------------------------------
+
+$$$$$ Esperar 1 seg
+--------------------------------
+
+En este caso, en 7 y 8, aplicamos en Axioma de transitividad tomando
+[x igual a 'b', ye igual a (b s c) y 'z' igual a ('a' s (b s c))]
+
+$$$$$ Esperar 1 seg
+
+--------------------------------
+Usando el resultado 6 y dada la aplicación del axioma expresada en 8, podemos
+concluir, en 9, que [b es menor o igual que (a s (b s c))]. Como bien habiamos
+visto en la prueba matemática
+
+--------------------------------
+$$$$$ Esperar 1 seg           [10]
+--------------------------------
+$$$$$ Esperar 1 seg           [11]
+--------------------------------
+
+Ahora, en 12, particularizamos el axioma de transitividad, pero esta vez tomando
+[x igual a 'x', ye igual a (b s c) y 'z' igual a (a s (b s c))]
+--------------------------------
+Ahora bien, usando 11, podemos aplicar la regla de modusponens con 12 y así
+concluir que [c es menor o igual a (a s (b s c))]. Resultado parcial
+que se corresponde con el obtenido en la prueba matemática
+--------------------------------
+$$$$$ Esperar 1 seg           [14]
+--------------------------------
+$$$$$ Esperar 1 seg           [15]
+--------------------------------
+$$$$$ Esperar 1 seg           [16]
+--------------------------------
+
+Bueno, ahora en 16 y 17 particularizamos el axioma [A s es menor cota] tomando
+[x igual a 'a', 'ye' igual a 'b'  y 'z' igual a (a s (b s c) )]
+--------------------------------
+
+Y utilizando 15 y la particularización en 17, obtenemos que
+[(a s b) es menor o igual a (a s (b s c))].
+--------------------------------
+
+Por última vez, utilizamos la particularizacion del axioma de [A s es menor cota]
+tomando [x igual a (a s b), ye igual a 'c' y z igual a (a s (b s c))]
+
+--------------------------------
+
+$$$$$ Esperar 1 seg           [20]
+--------------------------------
+Finalmente, igual que en la prueba matemática, por 20 y la particularizacion usada en 19, por modusponens, concluimos a que
+[(a s b) s 'c' es menor o igual a ('a' s (b s c))]
+--------------------------------
+$$$$$ Esperar 1 seg           [22]
+--------------------------------
+Y así, notar que dadas las formas de aplicar las reglas, podemos usar la
+regla de generalización para concluir que nuestro resultado es válido para
+todo 'x', todo 'ye' y todo 'z'.
 
 
 ----------------------------------------------------
