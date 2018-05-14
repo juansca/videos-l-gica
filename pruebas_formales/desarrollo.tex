@@ -347,7 +347,7 @@ i}\;z\wedge x\;\mathsf{s}\;z\equiv y\;\mathsf{s}\;z}
   \begin{center}
     $\forall x \forall y ((x\ s\ y)\ i\ x \equiv x)$
   \end{center}
-  A partir de ahora, lo llamaremos (*). Queda como ejercicio su prueba.
+  A partir de ahora, lo llamaremos TeoremaAbsorv. Queda como ejercicio su prueba.
 
 \end{frame}
 
@@ -405,7 +405,7 @@ i}\;z\wedge x\;\mathsf{s}\;z\equiv y\;\mathsf{s}\;z}
    Prueba Matemática}
   \begin{itemize}[<+->]
 
-    \item Por teorema ($*$) sabemos que
+    \item Por TeoremaAbsorv sabemos que
       \begin{align}
         (b\ s\ c)\ i\ b \equiv b
       \end{align}
@@ -440,7 +440,7 @@ i}\;z\wedge x\;\mathsf{s}\;z\equiv y\;\mathsf{s}\;z}
         (b\ s\ c)\ i\ a \equiv (a\ s\ c)\ i\ a
       \end{align}
 
-    \item Finalmente, por ($*$):
+    \item Finalmente, por TeoremaAbsorv:
       \begin{align}
         (a\ s\ c)\ i\ a \equiv a
       \end{align}
@@ -479,19 +479,19 @@ i}\;z\wedge x\;\mathsf{s}\;z\equiv y\;\mathsf{s}\;z}
   \begin{enumerate}[<+->]
     \item $ \idistr $ \hfill HIPÓTESIS1
     %\item $ \forall x\ \forall y\ (\exists z (\myconj) \rightarrow x\ \equiv y)$ \hfill(HIPÓTESIS2)
-    \item $ \exists z\ ((a\ i\ z) \equiv (b\ i\ z) \Nand (a\ s\ z) \equiv (b\ i\ z))$ \hfill HIPÓTESIS2
-    \item $ ((a\ i\ c) \equiv (b\ i\ c) \Nand (a\ s\ c) \equiv (b\ i\ c))$ \hfill ELECCION(2)
+    \item $ \exists z\ ((a\ i\ z) \equiv (b\ i\ z) \Nand (a\ s\ z) \equiv (b\ s\ z))$ \hfill HIPÓTESIS2
+    \item $ ((a\ i\ c) \equiv (b\ i\ c) \Nand (a\ s\ c) \equiv (b\ s\ c))$ \hfill ELECCION(2)
     \item $ \forall x\ \forall y\ (x\ s\ y)\ i\ x \equiv x$ \hfill TEOREMAABSORV
     \item $ (b\ s\ c)\ i\ b \equiv b$ \hfill PARTICULARIZACIONx2(4)
     \item $ (a\ s\ c) \equiv (b\ s\ c) $ \hfill CONJELIM(3)
-    \item $ (a\ i\ c) \equiv (b\ i\ c) $ \hfill CONJELIM(3)
 
     \item $ (a\ s\ c)\ i\ b \equiv b$ \hfill REEMP(6,5)
     \item $ (b\ i\ a)\ s\ (b\ i\ c) \equiv b\ i\ (a\ s\ c) $ \hfill PARTICULARIZACIONx3(1)
-    \item $ b\ i\ (a\ s\ c) \equiv b$ \hfill TEOREMACONMUT(8)
-    \item $ (b\ i\ a)\ s\ (b\ i\ c) \equiv b$ \hfill REEMP(9,10)
+    \item $ b\ i\ (a\ s\ c) \equiv b$ \hfill TEOREMACONMUT(7)
+    \item $ (b\ i\ a)\ s\ (b\ i\ c) \equiv b$ \hfill REEMP(8,9)
+    \item $ (a\ i\ c) \equiv (b\ i\ c) $ \hfill CONJELIM(3)
 
-    \item $ (b\ i\ a)\ s\ (a\ i\ c) \equiv b$ \hfill REEMP(7,11)
+    \item $ (b\ i\ a)\ s\ (a\ i\ c) \equiv b$ \hfill REEMP(10,11)
     \item $ (a\ i\ b)\ s\ (a\ i\ c) \equiv b$ \hfill TEOREMACONMUT(12)
     \item $ (a\ i\ b)\ s\ (a\ i\ c) \equiv a\ i\ (b\ s\ c)$ \hfill PARTICULARIZACIONx3(1)
     \item $ a\ i\ (b\ s\ c) \equiv b $ \hfill REEMP(14,13)

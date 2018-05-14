@@ -192,7 +192,7 @@ Ahora daremos la prueba formal en Ret de la sentencia en cuestión
 
 --------------------------------
 
-$$$$$ Esperar 1 seg
+$$$$$ Esperar 1 seg        [1]
 
 --------------------------------
 Notemos que nos tomaremos una pequeña licencia del formalismo aplicando
@@ -211,17 +211,17 @@ matemática.
 
 --------------------------------
 
-$$$$$ Esperar 1 seg
+$$$$$ Esperar 1 seg      [4]
 --------------------------------
 
-Esta vez, en 1, 3 y 5 aplicamos el mismo axioma que antes, pero esta vez tomando [x igual a b] y [ye igual a c] para obtener que
+Esta vez, en 1, 4 y 5 aplicamos el mismo axioma que antes, pero esta vez tomando [x igual a b] y [ye igual a c] para obtener que
 [b es menor o igual a '(b s c)']
 --------------------------------
 
-$$$$$ Esperar 1 seg
+$$$$$ Esperar 1 seg        [6]
 --------------------------------
 
-$$$$$ Esperar 1 seg
+$$$$$ Esperar 1 seg        [7]
 --------------------------------
 
 En este caso, en 7 y 8, aplicamos en Axioma de transitividad tomando
@@ -241,7 +241,7 @@ $$$$$ Esperar 1 seg           [11]
 --------------------------------
 
 Ahora, en 12, particularizamos el axioma de transitividad, pero esta vez tomando
-[x igual a 'x', ye igual a (b s c) y 'z' igual a (a s (b s c))]
+[x igual a 'c', ye igual a (b s c) y 'z' igual a (a s (b s c))]
 --------------------------------
 Ahora bien, usando 11, podemos aplicar la regla de modusponens con 12 y así
 concluir que [c es menor o igual a (a s (b s c))]. Resultado parcial
@@ -439,4 +439,69 @@ al lector
 
 --------------------------------
 
-[esperar 3 segundos]
+Primero, tomamos como hipótesis inicial la hipótesis del enunciado que queremos
+probar. Es decir, Dis1.
+$$$$$ Esperar 1 seg           
+--------------------------------
+Ahora, tomaremos la segunda hipótesis del enunciado fijando
+[x igual a 'a' y 'ye' igual a 'b']
+
+--------------------------------
+En 3 aplicamos la regla de eleccion tomando 'z' igual a 'c'.
+--------------------------------
+
+$$$$$ Esperar 1 seg           [4]
+--------------------------------
+
+En 4 y 5 particularizamos el TeoremaAbsorv tomando [x igual a 'b' y 'ye' igual a 'c']
+
+--------------------------------
+$$$$$ Esperar 1 seg           [6]
+--------------------------------
+
+Dados los resultados 5 y 6, podemos aplicar la regla de reemplazo y así obtener
+que [(a s c) i b es igual a 'b']
+
+--------------------------------
+
+$$$$$ Esperar 1 seg           [8]
+--------------------------------
+
+En 8 y 9, particularizamos la hipótesis 1 tomando
+[x igual a 'b', ye igual a 'a' y z igual a 'c'] y aplicamos el TeoremaConmut
+--------------------------------
+$$$$$ Esperar 1 seg           [10]
+--------------------------------
+$$$$$ Esperar 1 seg           [11]
+--------------------------------
+$$$$$ Esperar 1 seg           [12]
+--------------------------------
+En 10, 11 y 12 aplicamos una serie de reglas para luego, en 13, aplicando el
+TeoremaConmut obtener que [(a i b) s (a i c) es igual a b]
+--------------------------------
+$$$$$ Esperar 1 seg           [14]
+--------------------------------
+$$$$$ Esperar 1 seg           [15]
+--------------------------------
+$$$$$ Esperar 1 seg           [16]
+--------------------------------
+En 14, 15 y 16, utilizamos la particularización de la hipótesis 1 y aplicando una
+serie de reglas, análogas a las que aplicamos en la prueba matemática, obtenemos
+en 17 que [(a s c) i a es igual a 'b']
+--------------------------------
+Ahora bien, si particularizamos el TeoremaAbsorv con
+[x igual a 'a' y ye igual a 'c'] claramente obtenemos que
+(a s c) i a es igual a 'a'
+--------------------------------
+
+Lo cual, por los resultados 17 y 18, tal y como vimos en la prueba matemática,
+nos dice que [a es igual a 'b'].
+
+--------------------------------
+$$$$$ Esperar 1 seg           [20]
+--------------------------------
+$$$$$ Esperar 1 seg           [21]
+--------------------------------
+Y así, aplicando las reglas de conclusión y las generalizaciones correspondientes,
+llegamos a que hemos probado la sentencia en cuestión.
+--------------------------------
