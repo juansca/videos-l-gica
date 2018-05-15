@@ -467,40 +467,55 @@ que [(a s c) i b es igual a 'b']
 $$$$$ Esperar 1 seg           [8]
 --------------------------------
 
-En 8 y 9, particularizamos la hipótesis 1 tomando
-[x igual a 'b', ye igual a 'a' y z igual a 'c'] y aplicamos el TeoremaConmut
+$$$$$ Esperar 1 seg           [9]
 --------------------------------
+
 $$$$$ Esperar 1 seg           [10]
 --------------------------------
-$$$$$ Esperar 1 seg           [11]
+
+Particularizamos el TeoremaConmut tomando [x igual a 'b' y ye igual a (a s c)]
+para luego aplicar el reemplazo entre 7 y 10
 --------------------------------
-$$$$$ Esperar 1 seg           [12]
+
+En 8, particularizamos la hipótesis 1 tomando
+[x igual a 'b', ye igual a 'a' y z igual a 'c'] para luego aplicar el reemplazo
+entre 8 y 11, y así obtener que [(b i a) s (a i c) es igual a 'b'] como vimos
+en la prueba matemática
 --------------------------------
-En 10, 11 y 12 aplicamos una serie de reglas para luego, en 13, aplicando el
-TeoremaConmut obtener que [(a i b) s (a i c) es igual a b]
+$$$$$ Esperar 1 seg           [13]
 --------------------------------
 $$$$$ Esperar 1 seg           [14]
 --------------------------------
 $$$$$ Esperar 1 seg           [15]
 --------------------------------
-$$$$$ Esperar 1 seg           [16]
+En 13, 14 y 15 aplicamos una serie de reglas para luego, en 16, aplicando el
+TeoremaConmut obtener que [(a i b) s (a i c) es igual a b]
 --------------------------------
-En 14, 15 y 16, utilizamos la particularización de la hipótesis 1 y aplicando una
+$$$$$ Esperar 1 seg           [17]
+--------------------------------
+$$$$$ Esperar 1 seg           [18]
+--------------------------------
+$$$$$ Esperar 1 seg           [19]
+--------------------------------
+$$$$$ Esperar 1 seg           [20]
+--------------------------------
+
+En 17, 18, 19 y 20, utilizamos la particularización de la hipótesis 1 y aplicando una
 serie de reglas, análogas a las que aplicamos en la prueba matemática, obtenemos
-en 17 que [(a s c) i a es igual a 'b']
+en 21 que [(a s c) i a es igual a 'b']
 --------------------------------
 Ahora bien, si particularizamos el TeoremaAbsorv con
 [x igual a 'a' y ye igual a 'c'] claramente obtenemos que
 (a s c) i a es igual a 'a'
 --------------------------------
 
-Lo cual, por los resultados 17 y 18, tal y como vimos en la prueba matemática,
+Lo cual, por los resultados 21 y 22, tal y como vimos en la prueba matemática,
 nos dice que [a es igual a 'b'].
 
 --------------------------------
-$$$$$ Esperar 1 seg           [20]
+$$$$$ Esperar 1 seg           [24]
 --------------------------------
-$$$$$ Esperar 1 seg           [21]
+$$$$$ Esperar 1 seg           [25]
 --------------------------------
 Y así, aplicando las reglas de conclusión y las generalizaciones correspondientes,
 llegamos a que hemos probado la sentencia en cuestión.
