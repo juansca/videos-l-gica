@@ -224,7 +224,7 @@ $$$$$ Esperar 1 seg        [6]
 $$$$$ Esperar 1 seg        [7]
 --------------------------------
 
-En este caso, en 7 y 8, aplicamos en Axioma de transitividad tomando
+En este caso, en 7 y 8, aplicamos el Axioma de transitividad tomando
 [x igual a 'b', ye igual a (b s c) y 'z' igual a ('a' s (b s c))]
 
 $$$$$ Esperar 1 seg
@@ -274,9 +274,9 @@ Finalmente, igual que en la prueba matemática, por 20 y la particularizacion us
 --------------------------------
 $$$$$ Esperar 1 seg           [22]
 --------------------------------
-Y así, notar que dadas las formas de aplicar las reglas, podemos usar la
-regla de generalización para concluir que nuestro resultado es válido para
-todo 'x', todo 'ye' y todo 'z'.
+Y así, notar que dado que no hay ninguna constante que dependa de 'a', 'b' o 'c',
+podemos usar la regla de generalización para concluir que nuestro resultado es
+válido para todo 'x', todo 'ye' y todo 'z'.
 
 
 ----------------------------------------------------
@@ -300,16 +300,16 @@ Primero buscamos la prueba matemática y luego la formal.
 --------------------------------
 
 Usaremos el teorema auxiliar en pantalla, el cual llamaremos a partir de ahora
-"teorema estrella".
+"teoremaAbsorv".
 
 Recomendamos que se realice la prueba del mismo como ejercicio.
 
-probaremos un teorema auxiliar que utilizaremos más adelante.
 
 
 --------------------------------
 
-Ahora estamos en condiciones de probar la sentencia que queríamos.
+Ahora estamos en condiciones de dar la prueba matemática de la sentencia que
+queríamos.
 
 
 --------------------------------
@@ -346,21 +346,21 @@ Supongamos que se cumple el antecedente de la implicación, es decir la sentenci
 
 --------------------------------
 
-Supongamos 'c' es un elemento que cumple con la propiedad expresada en el antecedente.
+Sea 'c' un elemento que cumple con la propiedad expresada en el antecedente.
 
 Es decir:
-[(a i c) es igual que (b i c)] y que [(a s c) es igual que (b s c)]
+[(a i c) es igual que (b i c)] y que [(a s c) es igual a (b s c)]
 
 
 --------------------------------
 
-Probemos entonces que ['a' es igual que 'b']
+Probemos entonces que ['a' es igual a 'b']
 
 
 
 --------------------------------
 
-Por teorema estrella, sabemos que
+Por TeoremaAbsorv, sabemos que
 
 [(b s c) i b] es igual que 'b'
 
@@ -376,7 +376,7 @@ Así, por el resultado (2) sabemos que [(a s c) es igual que (b s c)], por lo qu
 
 --------------------------------
 
-Y por la hipótesis mencionada en (1), tenemos que
+Y por Dis1, tenemos que
 
 [(a s c) i b] es igual que [(a i b) s (c i b)]
 
@@ -390,7 +390,7 @@ Aplicando, nuevamente, el resultado 2 obtenemos que
 
 --------------------------------
 
-Ahora, de nuevo por la hipótesis 1 y por conmutatividad de i (cuya prueba se deja
+Ahora, de nuevo por Dis1 y por conmutatividad de i (cuya prueba se deja
 para el estudiante), sabemos  que
 
 [(a i b) s (c i a)] es igual que [(b s c) i a]
@@ -406,7 +406,7 @@ Y así, por 2
 
 --------------------------------
 
-Finalmente, por el teorema estrella demostrado anteriormente,
+Finalmente, por el TeoremaAbsorv demostrado anteriormente,
 
 [(a s c) i a] es igual que 'a'
 
@@ -421,8 +421,13 @@ Pero esto quiere decir que
 
 --------------------------------
 
-Y así, hemos demostrado que, en Ret, se cumple la sentencia inicial que queriamos
-probar.
+Como 'a' y 'b' eran elementos cualesquiera de A, hemos demostrado que,
+se cumple CancDobl
+--------------------------------
+
+
+Por lo tanto, cumple la sentencia inicial que queriamos probar.
+
 
 
 --------------------------------
@@ -434,6 +439,9 @@ Ahora procederemos a dar la prueba formal en Ret de la sentencia en cuestión
 
 Para hacerla, utilizaremos los siguientes teoremas cuyas pruebas formales son dejadas
 al lector
+
+--------------------------------
+
 [esperar 3 segundos]
 
 
@@ -447,20 +455,22 @@ Ahora, tomaremos la segunda hipótesis del enunciado fijando
 [x igual a 'a' y 'ye' igual a 'b']
 
 --------------------------------
-En 3 aplicamos la regla de eleccion tomando 'z' igual a 'c'.
+En 3 aplicamos la regla de eleccion con constante 'e'.
+
+
 --------------------------------
 
 $$$$$ Esperar 1 seg           [4]
 --------------------------------
 
-En 4 y 5 particularizamos el TeoremaAbsorv tomando [x igual a 'b' y 'ye' igual a 'c']
+En 4 y 5 particularizamos el TeoremaAbsorv tomando [x igual a 'b' y 'ye' igual a 'e']
 
 --------------------------------
 $$$$$ Esperar 1 seg           [6]
 --------------------------------
 
 Dados los resultados 5 y 6, podemos aplicar la regla de reemplazo y así obtener
-que [(a s c) i b es igual a 'b']
+que [(a s e) i b es igual a 'b']
 
 --------------------------------
 
@@ -473,13 +483,13 @@ $$$$$ Esperar 1 seg           [9]
 $$$$$ Esperar 1 seg           [10]
 --------------------------------
 
-Particularizamos el TeoremaConmut tomando [x igual a 'b' y ye igual a (a s c)]
+Particularizamos el TeoremaConmut tomando [x igual a 'b' y ye igual a (a s e)]
 para luego aplicar el reemplazo entre 7 y 10
 --------------------------------
 
 En 8, particularizamos la hipótesis 1 tomando
-[x igual a 'b', ye igual a 'a' y z igual a 'c'] para luego aplicar el reemplazo
-entre 8 y 11, y así obtener que [(b i a) s (a i c) es igual a 'b'] como vimos
+[x igual a 'b', ye igual a 'a' y z igual a 'e'] para luego aplicar el reemplazo
+entre 8 y 11, y así obtener que [(b i a) s (a i e) es igual a 'b'] como vimos
 en la prueba matemática
 --------------------------------
 $$$$$ Esperar 1 seg           [13]
@@ -489,7 +499,7 @@ $$$$$ Esperar 1 seg           [14]
 $$$$$ Esperar 1 seg           [15]
 --------------------------------
 En 13, 14 y 15 aplicamos una serie de reglas para luego, en 16, aplicando el
-TeoremaConmut obtener que [(a i b) s (a i c) es igual a b]
+TeoremaConmut obtener que [(a i b) s (a i e) es igual a b]
 --------------------------------
 $$$$$ Esperar 1 seg           [17]
 --------------------------------
@@ -502,21 +512,23 @@ $$$$$ Esperar 1 seg           [20]
 
 En 17, 18, 19 y 20, utilizamos la particularización de la hipótesis 1 y aplicando una
 serie de reglas, análogas a las que aplicamos en la prueba matemática, obtenemos
-en 21 que [(a s c) i a es igual a 'b']
+en 21 que [(a s e) i a es igual a 'b']
 --------------------------------
 Ahora bien, si particularizamos el TeoremaAbsorv con
-[x igual a 'a' y ye igual a 'c'] claramente obtenemos que
-(a s c) i a es igual a 'a'
+[x igual a 'a' y ye igual a 'e'] claramente obtenemos que
+(a s e) i a es igual a 'a'
 --------------------------------
 
 Lo cual, por los resultados 21 y 22, tal y como vimos en la prueba matemática,
 nos dice que [a es igual a 'b'].
 
 --------------------------------
-$$$$$ Esperar 1 seg           [24]
+Y así, podemos cerrar el bloque correspondiente a la Hipotesis 2
 --------------------------------
-$$$$$ Esperar 1 seg           [25]
+Y así, dado que ni en la sentencia 24 ni en sus Hipotesis ocurren constantes que dependan de 'a' o de 'b' se puede generalizar y concluir 25.
+
+
 --------------------------------
-Y así, aplicando las reglas de conclusión y las generalizaciones correspondientes,
-llegamos a que hemos probado la sentencia en cuestión.
+Luego, podemos cerrar el bloque de la Hipotesis 1 y así concluir la sentencia que buscábamos.
+
 --------------------------------
